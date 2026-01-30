@@ -21,6 +21,7 @@ Provide:
 * Test cases (valid and invalid) demonstrating edge cases</pre>
 </details>
 
+
 <details>
 <summary>v2: (improvements)</summary>
 <pre>
@@ -69,6 +70,9 @@ Provide:
     - Test cases demonstrating correct behavior and edge-case handling
 </pre>
 </details>
+
+[Generated Code (v2)](/HW1/challenge2/v2-results/)
+
 <details>
 <summary>v3: (final prompt)</summary>
 <pre>Context: You are an senior front-end engineer with deep expertise in React and TypeScript. You are tasked with building a production-quality, reusable data table component.
@@ -128,6 +132,8 @@ Provide:
     - Do NOT include explanations outside the code files. Ensure all imports reference the correct relative paths.
 </pre>
 </details>
+
+[Generated Code (v3)](/HW1/challenge2/v3-results/)
     
 ---
 After generating code from v3, I encountered significant issues when importing the files into my IDE:
@@ -242,6 +248,10 @@ Also Provide:
 
 Do NOT include explanations outside the code files and README. Every file should be complete and ready to use.</pre>
 </details>
+
+[Generated Code (v4)](/HW1/challenge2/v4-results/)
+
+<br>
 
 # Reflection
 Prompt v1 focused on basic features (sort, filter, paginate) with minimal constraints. Left too many decisions to the model, including vague terms like "production-ready" and a request to pull data from Kaggle, which introduced unnecessary complexity.
