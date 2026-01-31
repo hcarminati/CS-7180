@@ -21,6 +21,7 @@ Provide:
 * Test cases (valid and invalid) demonstrating edge cases</pre>
 </details>
 
+[Claude Artifact (v1)](https://claude.ai/artifacts/7a6913e9-b85e-4191-923b-5dc6a669c0c6)
 
 <details>
 <summary>v2: (improvements)</summary>
@@ -72,6 +73,7 @@ Provide:
 </details>
 
 [Generated Code (v2)](/HW1/challenge2/v2-results/)
+[Claude Artifact (v2)](https://claude.ai/artifacts/5071f460-2e42-4dd5-8c20-aa0642bb7ef3)
 
 <details>
 <summary>v3: (final prompt)</summary>
@@ -134,7 +136,8 @@ Provide:
 </details>
 
 [Generated Code (v3)](/HW1/challenge2/v3-results/)
-    
+[Claude Artifact (v3)](https://claude.ai/artifacts/0f709f09-e34a-4d47-9610-6ff8258bb837)
+
 ---
 After generating code from v3, I encountered significant issues when importing the files into my IDE:
 - **339 TypeScript errors** due to missing dependencies and configuration
@@ -250,19 +253,20 @@ Do NOT include explanations outside the code files and README. Every file should
 </details>
 
 [Generated Code (v4)](/HW1/challenge2/v4-results/)
+[Claude Artifact (v4)](https://claude.ai/artifacts/7fac6b54-77db-48fd-90f7-486def3ba01e)
 
 <br>
 
 # Reflection
-Prompt v1 focused on basic features (sort, filter, paginate) with minimal constraints. Left too many decisions to the model, including vague terms like "production-ready" and a request to pull data from Kaggle, which introduced unnecessary complexity.
+Prompt v1 focused on basic features (sort, filter, paginate) with minimal constraints. Left too many decisions to the model, including vague instruction like "Pull from a random kaggle dataset" which introduced unnecessary complexity.
 
 Prompt v2 transformed the prompt into a detailed specification with explicit behavioral rules for sorting (stable, single-column, resets pagination), filtering (case-insensitive, applies before pagination), and pagination (configurable size, empty state handling). Added technical constraints including TypeScript types, memoization, and accessibility requirements.
 
 Prompt v3 kept v2's behavioral specifications but added explicit file output formatting. Requested 5 separate files (types.ts, mockData.ts, DataTable.tsx, DataTable.test.tsx, App.tsx) with a specific format for easy copy-paste into an IDE.
 
-Prompt v4 after v3 generated architecturally correct but non-runnable code (339 TypeScript errors, missing dependencies, no build configuration), I used Claude to help craft a comprehensive prompt requiring a complete project structure including package.json, vite.config.ts, tsconfig.json, index.html, and a README with setup instructions. Specified Vite as the build tool and Vitest for testing to ensure seamless integration.
+I wanted to run the code in my own IDE, so I created Prompt v4 after v3 generated architecturally correct but non-runnable code (339 TypeScript errors, missing dependencies, no build configuration). I used Claude to help craft a comprehensive prompt requiring a complete project structure including package.json, vite.config.ts, tsconfig.json, index.html, and a README with setup instructions. Specified Vite as the build tool and Vitest for testing to ensure seamless integration.
 
-Even after crafting the v4 prompt, the generated project required additional manual fixes before it would fully build and run:
+Even after crafting the v4 prompt, each generated file had to be created and then its content copied and pasted. The generated project still required additional manual fixes before it would fully build and run:
 - Unused imports causing build failures: TypeScript's strict mode flagged SortDirection, beforeEach, and fireEvent as unused imports, causing npm run build to fail. These had to be manually removed from DataTable.tsx and DataTable.test.tsx.
 - Missing index.html: The initial output didn't include the index.html file in the correct location, causing Vite to fail with "Could not resolve entry module" error. The file had to be manually created at the project root.
 

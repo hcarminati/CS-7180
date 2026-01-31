@@ -25,7 +25,6 @@ Provide:
 </pre>
 </details>
 
-
 [Generated Code (v1)](v1-results.js)
 
 <details>
@@ -64,7 +63,7 @@ Provide:
 [Generated Code (v2)](v2-results.js)
 
 # Reflection
-In prompt v1, the instruction focused on correctness and edge-case handling but left out design decisions (e.g., which technically valid email formats should be intentionally excluded). It generated a functionally correct solution, but it lacked clear reasoning for why certain emails were rejected. And, because I had Claude role-play as a student, it returned a simpler 
+In prompt v1, the instruction focused on correctness and edge-case handling but left out design decisions (e.g., which technically valid email formats should be intentionally excluded). It generated a functionally correct solution, but it lacked clear reasoning for why certain emails were rejected. And, because I had Claude role-play as a student, it returned a simpler solution to the problem.
 
 In prompt v2, I narrowed the scope and explicitly defined more constraints. For example, instead of generally telling it to "follow common real-world email validation rules," I provided explicit constraints on what it shouldn't support (e.g., "Reject quoted locals, comments, IP literals, and whitespaces"). These changes reduced ambiguity and guided the model towards a better implementation. 
 
